@@ -1,14 +1,23 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <div>
+    <h1 class="test">{{ img }}</h1>
+    <img :src="img" />
+  </div>
 </template>
-
 <script>
+import img from "@/asset/img.jpg";
 export default {
   data() {
     return {
-      msg: "LHAPPPP"
+      msg: "POPOOPOPKP）",
+      img: img
     };
   }
 };
-
 </script>
+<style lang="less" scoped>
+.test {
+  color: @color;
+}
+</style>
+

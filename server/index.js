@@ -5,8 +5,12 @@ const webpack = require("webpack");
 const devConfig = require("../build/webpack.dev.config");
 const webpackCompiler = webpack(devConfig);
 const app = express();
-app.use(webpackDevMiddleware(webpackCompiler));
-app.use(webpackHotMiddleware(webpackCompiler));
+app.use(webpackDevMiddleware(webpackCompiler, {
+    logLevel: "error",
+}));
+app.use(webpackHotMiddleware(webpackCompiler, {
+    noInfo: true
+}));
 app.listen(3000, () => {
     console.log(`listen：http://localhost:3000`);
-})
+});

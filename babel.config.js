@@ -1,3 +1,6 @@
+/**
+ * @type {import('@babel/core').TransformOptions}
+ */
 module.exports = {
     "presets": [
         [
@@ -9,6 +12,6 @@ module.exports = {
                     "ie": "11"
                 }
             },
-        ]
+        ],
     ]
 }

@@ -1,3 +1,6 @@
+/**
+ * @type {import('webpack').Configuration} 
+ */
 const isProd = process.env.NODE_ENV === "production";
 const path = require("path");
 const resolve = filename => path.resolve(__dirname, filename);
@@ -7,9 +10,9 @@ const config = {
     resolve: {
         alias: {
             "@": resolve("../src")
-        }
-        // extensions: ["js", "vue", "ts"]
-    }
+        },
+        extensions: [".js", ".vue", ".ts"]
+    },
 }
 module.exports = {
     config
