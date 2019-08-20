@@ -1,12 +1,21 @@
 import Vue from "vue";
 import App from "@/pages/App.vue";
+import router from "@/router/index";
+import VueRouter from "vue-router";
+import hocUtil from "@/hoc/hoc-util";
+Vue.use(VueRouter);
+const AppHoc = hocUtil(App, {
+    mounted() {
+        console.log("HEI BOY");
+    },
+});
 new Vue(
     {
         el: "#app",
-        render: h => h(App)
+        router: router,
+        render: h => h(AppHoc)
     }
 );
-//这里是必须的，没有他无法热更新
 if (module.hot) {
     module.hot.accept();
 }

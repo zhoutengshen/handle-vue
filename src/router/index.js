@@ -16,7 +16,6 @@ const routerOptions = {
         }
     ]
 }
-
 export default new VueRouter({
     ...routerOptions
 })

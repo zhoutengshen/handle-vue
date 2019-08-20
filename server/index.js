@@ -11,6 +11,14 @@ app.use(webpackDevMiddleware(webpackCompiler, {
 app.use(webpackHotMiddleware(webpackCompiler, {
     noInfo: true
 }));
+app.get("*", (req, resp, next) => {
+    const reqUrl = req.url;
+    if (reqUrl == "/") {
+        next();
+    } else {
+        resp.redirect("/");
+    }
+})
 app.listen(3000, () => {
     console.log(`listen：http://localhost:3000`);
 });
