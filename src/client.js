@@ -2,18 +2,14 @@ import Vue from "vue";
 import App from "@/pages/App.vue";
 import router from "@/router/index";
 import VueRouter from "vue-router";
-import hocUtil from "@/hoc/hoc-util";
+import backForwardWrapper from "@/hoc/back-forward-wrapper";
 Vue.use(VueRouter);
-const AppHoc = hocUtil(App, {
-    mounted() {
-        console.log("HEI BOY");
-    },
-});
+const BackForwardApp = backForwardWrapper(App);
 new Vue(
     {
         el: "#app",
         router: router,
-        render: h => h(AppHoc)
+        render: h => h(BackForwardApp)
     }
 );
 if (module.hot) {
